@@ -2,5 +2,8 @@
 
 const USER_HEADER = "LOG_U_T_" ;
 
+const CACHE_APPEND_PSWD = "PWD_";
 
-module.exports = { USER_HEADER }
+const EXPIRED_TIME_PSWD_SMS = 900;
+
+module.exports = { USER_HEADER ,CACHE_APPEND_PSWD , EXPIRED_TIME_PSWD_SMS}

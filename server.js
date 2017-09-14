@@ -10,6 +10,7 @@ const sysConfig = require('./config/SystemConfig');
 const serverLogger = require('./util/ServerLogger');
 const logger = serverLogger.createLogger('Server');
 const token = require('./bl/Token.js');
+const sms = require('./bl/Sms.js');
 ///--- API
 
 /**
@@ -82,6 +83,10 @@ function createServer() {
     server.get('/api/token/:accessToken',token.queryToken);
     server.post({path:'/api/token',contentType: 'application/json'},token.saveToken);
     server.del({path:'/api/token/:accessToken',contentType: 'application/json'} ,token.removeToken);
+
+    server.get('/api/:phone/passwordCode',sms.getRestPswd);
+    server.post({path:'/api/:phone/passwordCode',contentType: 'application/json'},sms.addRestPswd);
+
 
 
     server.on('NotFound', function (req, res, next) {
