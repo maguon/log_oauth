@@ -89,7 +89,9 @@ function createServer() {
     server.del({path:'/api/token/:accessToken',contentType: 'application/json'} ,token.removeToken);
 
     server.get('/api/:phone/passwordCode',sms.getRestPswd);
+    server.get('/api/:phone/signCode',sms.getSignCode);
     server.post({path:'/api/:phone/passwordCode',contentType: 'application/json'},sms.addRestPswd);
+    server.post({path:'/api/:phone/signCode',contentType: 'application/json'},sms.addSignCode);
 
 
 
